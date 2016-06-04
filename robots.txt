@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /vi/ho-so-ca-nhan
+Disallow: /vi/tai-khoan
+Disallow: /vi/dieu-khoan-su-dung
+Disallow: /vi/chinh-sach-bao-mat
+
+Disallow: /en/profile
+Disallow: /en/user
+Disallow: /en/terms-of-service
+Disallow: /en/privacy-policy
+
+Sitemap: http://antoree.com/sitemap.xml

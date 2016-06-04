@@ -1,0 +1,1 @@
+@include('widgets.base_links.admin')

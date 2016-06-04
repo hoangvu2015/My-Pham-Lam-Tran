@@ -1,0 +1,11 @@
+.blue-color{color: #399FF5 !important;}
+.blue-head{color: #399FF5 !important;margin-bottom: 20px !important;}
+.teacher-profile hr{border-top: 1px solid #DAD3D3 !important;}
+.teach-pro .info-profile{display:inline-block !important;padding-left:15px !important;vertical-align: top;}
+.teach-pro .img-pro{display:inline-block !important;vertical-align: bottom;}
+.rate-profile{padding-top: 60px;}
+/*.company-pro{font-size: 11px !important;}*/
+.from-to{text-transform: lowercase;}
+.table-item{min-width:200px;min-height:200px;background:#fff;display: table;max-width: 300px;}
+.table-item a{display: table-cell;vertical-align: middle;}
+.table-item a img{height: auto!important;max-width: 100%;padding: 0 10px;}

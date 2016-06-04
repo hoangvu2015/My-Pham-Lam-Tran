@@ -1,0 +1,20 @@
+/* popup */
+#mod-enterprofile .modal {width: 100%;}
+#mod-enterprofile .container form input {width: 100%;}
+#mod-enterprofile .container form input.btn {width: 100%;}
+#myModalDulicate .modal-dialog {max-width: 400px;position: fixed;top: 50%;left: 50%;margin-top: -20px;margin-left: -200px;}
+#myModalDulicate .modal-content {border-radius: 0;}
+.btn-dupli {max-width: 140px;height: 40px;border: 0;margin: 0 5px;color: #fff;}
+.btnRed {color:#000 !important;background: #ddd;}
+.btnGreen {background: #00AB6B;}
+.btn-group {display: block;max-width: 320px;text-align: center;margin: auto;margin-top: 20px;}
+#mod-enterprofile h2.h2Title {font-family: OpenSans-Bold;font-size: 24px;color: #333;font-weight: 400;font-style: normal;}
+#mod-enterprofile .des {font-size: 16px;max-width: 385px;padding: 0 10px;text-align: center;margin: auto;}
+#mod-enterprofile hr {max-width: 300px;border-top: 1px solid #000;}
+.you-known {margin-top: 30px;display: block;}
+#mod-enterprofile .infoTeacher {margin: auto;max-width: 600px;}
+#mod-enterprofile .imgTeach {display: block;float: left;}
+#mod-enterprofile .info {float: left;padding-left: 20px;max-width: 380px;}
+#mod-enterprofile .title {text-align: center;margin-top: 50px;font-weight: bold;}
+.module{padding-left: 10px;padding-right: 10px;}
+#mod-enterprofile .radio label::before {content: none;}

@@ -1,0 +1,42 @@
+#mod-known{ font-size: 16px;}
+#mod-known h2.h2Title {font-family: OpenSans-Bold;font-size: 24px;color: #333;font-weight: 400;font-style: normal;}
+#mod-known .btn-dupli {max-width: 140px;height: 40px;border: 0;margin: 0 5px;color: #fff;}
+#mod-known .btnRed {color:#000 !important;background: #ddd;}
+#mod-known .btnGreen {background: #00AB6B;}
+#mod-known .btn-group {display: block;max-width: 320px;text-align: center;margin: auto;margin-top: 20px;}
+textarea{width: 100% !important;padding: 10px; margin-top: 10px; border-radius: 3px;}
+strong {margin-top: 35px;margin-bottom: -10px;display: block;}
+#mod-known strong{ margin-top: 30px;}
+#mod-known .title{text-align: center;color: #0BC7B4 !important;border-bottom: 1px solid #0BC7B4;width: 410px;padding-bottom: 10px;margin: auto;margin-bottom: 30px;}
+#mod-known .container {max-width: 600px;}
+hr{width: 300px;border-top: 1px solid #000;}
+.module{padding-left: 10px;padding-right: 10px;}
+#mod-known #select-old{width: 100%;border: 1px solid #ccc;border-radius: 3px;height: 50px;font-size: 16px;background:#fff;}
+#mod-known .exigency{font-weight: 100;margin-bottom: 15px;}
+#mod-known .radio label::before {content: none;}
+#mod-known .radio { padding: 0;}
+
+a{ text-decoration: none; }
+#mod-welcome .h2Title{margin-bottom: 0;text-transform: none;font-size: 22px;line-height: 28px; margin-bottom: 100px; color: #00AB6B; font-family: OpenSans-Semibold; font-weight: 400;}
+
+#mod-header{ display: none; }
+#mod-welcome{ margin-bottom: 20px; max-width: 860px; margin: 0 auto; padding: 50px 20px 20px;}
+#mod-welcome .item{color: #384047; font-size: 18px; font-weight: 600; line-height: 24px; margin-bottom: 25px; }
+#mod-welcome .item:hover{ color: #00ab6b; }
+#mod-welcome .item .content{background-color: #fafafa; border-radius: 2px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);}
+#mod-welcome .item .images{ width: 37.5%; }
+#mod-welcome .item .images img{ width: 100%; }
+#mod-welcome .item .text{ width: 62.5%; padding: 20px 10px 0 20px;}
+.module{padding-left: 10px;padding-right: 10px; margin: 0 15px;}
+.social{ margin-top: 100px; }
+.social a{ margin: 0 10px; }
+@media only screen and (max-width: 400px) {
+	#mod-welcome .item .text{ padding: 5px 10px;}
+}
+/* popup */
+/* .modal {width: 100%;}
+#mod-known .container form input {width: 100%;}
+#mod-known .container form input.btn {width: 100%;}
+#myModalDulicate .modal-dialog {max-width: 400px;position: fixed;top: 50%;left: 50%;margin-top: -20px;margin-left: -200px;}
+#myModalDulicate .modal-content {border-radius: 0;} */
+/* end Popup */

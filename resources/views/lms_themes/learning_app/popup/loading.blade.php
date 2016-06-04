@@ -1,0 +1,1 @@
+<img src="{{url()}}/public/reload.svg" alt="">

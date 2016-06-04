@@ -11,3 +11,4 @@ storage/
 .env.php
 .env
 .env.example
+.DS_Store
