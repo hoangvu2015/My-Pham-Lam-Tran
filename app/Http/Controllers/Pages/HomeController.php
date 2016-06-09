@@ -19,44 +19,10 @@ class HomeController extends ViewController
      */
     public function index()
     {
-
-        // $view = AppOptionHelper::get('homepage_view', 'cover');
-
         $this->theme->title([trans('pages.page_home_title_meta')],false);
         $this->theme->description(trans('pages.page_home_desc_meta'));
 
-        return view($this->themePage('home'),[
-             'session_popup' => session('popup'),
-            ]);
-
-        // if ($view == 'slideshow') {
-        //     $slidePictures = AppOptionHelper::get('homepage_slide_picture', [], $this->locale, true);
-        //     $slideContents = AppOptionHelper::get('homepage_slide_content', [], $this->locale, true);
-        //     $slidePictures = array_values($slidePictures);
-        //     $slideContents = array_values($slideContents);
-        //     $max_slides = max(count($slidePictures), count($slideContents));
-        //     $slides = [];
-        //     for ($i = 0; $i < $max_slides; ++$i) {
-        //         if (!empty($slidePictures[$i]) && !empty($slideContents[$i])) {
-        //             $slides[] = [
-        //             'picture' => $slidePictures[$i],
-        //             'content' => str_replace('{!! csrf_field() !!}', csrf_field(), $slideContents[$i]),
-        //             ];
-        //         }
-        //     }
-        //     return view($this->themePage('home_slideshow'), [
-        //         'slides' => $slides
-        //         ]);
-        // }
-
-        // return view($this->themePage('home_cover'), [
-        //     'cover_picture' => AppOptionHelper::get('homepage_cover_picture',
-        //         $this->theme->imageAsset('photodune-4161018-group-of-students-m.jpg'), $this->locale),
-        //     'cover_heading' => AppOptionHelper::get('homepage_cover_heading',
-        //         appName(), $this->locale),
-        //     'cover_subheading' => AppOptionHelper::get('homepage_cover_subheading',
-        //         appDescription(), $this->locale),
-        //     ]);
+        return view('theme_mypham.pages.home');
     }
 
     public function getLocalizationSetting(Request $request)

@@ -1,7 +1,15 @@
 <?php
 #Region Non-localized Routes
 Route::get('auth/auto-login-id/{id}', 'Auth\AuthController@getAutoLogin');
+//Home
+Route::get('/', 'Pages\HomeController@index');
+Route::get('/tin-tuc', 'Pages\BlogController@listBlog');
+
 #Endregion Non-localized Routes
+
+
+
+
 //==============================================
 #Region API Routes
 Route::group(['prefix' => 'api/v1','middleware' => 'apiForceLocalizing'], function () {
@@ -77,7 +85,6 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['for
     ##endregion Authentication Routes
 
     ##region Anonymous Routes
-    Route::get('/', 'Pages\HomeController@index');
     Route::get(translatedPath('localization-settings'), 'Pages\HomeController@getLocalizationSetting');
     Route::post(translatedPath('localization-settings'), 'Pages\HomeController@postLocalizationSetting');
     Route::match(['get', 'post'], translatedPath('supporter/{id?}'), 'Pages\SupporterController@layoutContactSupporters')
@@ -254,8 +261,23 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['for
                 Route::get(translatedAdminPath('link/items/{id}/edit'), 'Admin\LinkItemController@edit')
                 ->where('id', '[0-9]+');
                 Route::post(translatedAdminPath('link/items/update'), 'Admin\LinkItemController@update');
+                //Category Product Items
+                Route::get(translatedAdminPath('category-product'), 'Admin\ProductCategoryController@index');
+                Route::get(translatedAdminPath('category-product/add'), 'Admin\ProductCategoryController@create');
+                Route::post(translatedAdminPath('category-product/add'), 'Admin\ProductCategoryController@store');
+                Route::get(translatedAdminPath('category-product/{id}/edit'), 'Admin\ProductCategoryController@edit');
+                Route::post(translatedAdminPath('category-product/update'), 'Admin\ProductCategoryController@update');
+                Route::post(translatedAdminPath('category-product/{id}/delete'), 'Admin\ProductCategoryController@destroy');
+                //Product Items
+                Route::get(translatedAdminPath('product'), 'Admin\ProductController@index');
+                Route::get(translatedAdminPath('product/add'), 'Admin\ProductController@create');
+                Route::post(translatedAdminPath('product/add'), 'Admin\ProductController@store');
+                Route::get(translatedAdminPath('product/{id}/edit'), 'Admin\ProductController@edit');
+                Route::post(translatedAdminPath('product/update'), 'Admin\ProductController@update');
+                Route::post(translatedAdminPath('product/{id}/delete'), 'Admin\ProductController@destroy');
             });
             ####endregion Admin Role
+
 });
         ###endregion Access Admin Permission
 });

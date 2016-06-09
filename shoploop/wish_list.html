@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html dir="ltr" lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>Shoploop: Wish List</title>
+	<meta name="description" content="">
+	<meta name="author" content="Ahmed Saeed">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/wish_list.css">
+	<link rel="stylesheet" href="css/responsive.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE9.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/ie8-and-down.css" />
+	<![endif]-->
+
+	<!-- Favicons
+	================================================== -->
+	<link rel="shortcut icon" href="images/favicon.ico">
+	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+
+</head>
+<body>
+
+	<!--start header-->
+	<header>
+
+		<div id="topHeader">
+			<div class="container">
+				<div class="sixteen columns">
+					<ul id="currency">
+						<li class="active_currency"><a href="#">$</a></li>
+						<li><a href="#">£</a></li>
+						<li><a href="#">€</a></li>
+					</ul>
+					<ul id="lang">
+						<li class="active_lang"><a href="#">en</a></li>
+						<li><a href="#">es</a></li>
+						<li><a href="#">fr</a></li>
+					</ul>
+					<ul id="topNav">
+						<li><a href="user_log.html">User Log</a></li>
+						<li><a class="active_link" href="wish_list.html">Wish List (5)</a></li>
+						<li><a href="account.html">My Account</a></li>
+						<li><a href="cart.html">Shopping Cart</a></li>
+						<li><a href="checkout.html">Checkout</a></li>
+					</ul>
+				</div><!--end sixteen-->
+			</div><!--end container-->
+		</div><!--end topHeader-->
+
+
+		<div id="middleHeader">
+			<div class="container">
+				<div class="sixteen columns">
+					<div id="logo">
+						<h1><a href="index.html">logo</a></h1>
+					</div><!--end logo-->
+
+					<form action="#" method="post" accept-charset="utf-8" class="example_form">
+						<label>
+							<input type="text" name="search" placeholder="Search in Product" value="">
+						</label>
+						<label>
+							<select name="search_category" class="default" tabindex="2">
+								<option>Category</option>
+							  	<option value="amazed">Amazed</option>
+							  	<option value="bored">Bored</option>
+							  	<option value="surprised">Surprised</option>
+							  	<option value="amazed">Amazed</option>
+							  	<option value="bored">Bored</option>
+							  	<option value="surprised">Surprised</option>
+							  	<option value="amazed">Amazed</option>
+							  	<option value="bored">Bored</option>
+							  	<option value="surprised">Surprised</option>
+							  	<option value="amazed">Amazed</option>
+							</select>
+						</label>
+						<div class="submit">
+							<input type="submit" name="submit">
+						</div>
+					</form><!--end form-->
+
+				</div><!--end sixteen-->
+			</div><!--end container-->
+		</div><!--end middleHeader-->
+
+		<div class="container">
+			<div class="sixteen columns">
+				<div id="mainNav" class="clearfix">
+					<nav>
+						<ul>
+							<li>
+								<a class="hasdropdown" href="#">Pages</a>
+								<ul class="submenu">
+									<li><a href="index.html">Home</a></li>
+									<li><a href="index2.html">Home 2</a></li>
+									<li><a href="about.html">About</a></li>
+									<li><a href="blog.html">Blog</a></li>
+									<li><a href="blog_post.html">Blog Post</a></li>
+									<li><a href="contact.html">Contact</a></li>
+								</ul>
+							</li>
+							<li>
+								<a class="desktop hasdropdown" href="#">Desktop</a>
+								<ul class="submenu">
+									<li><a href="#">PC</a></li>
+									<li><a href="#">Mac</a></li>
+									<li><a href="#">Luinx</a></li>
+								</ul>
+							</li>
+							<li><a class="labtops" href="#">Laptops</a></li>
+							<li>
+								<a class="componients hasdropdown" href="#">Componients</a>
+								<ul class="submenu">
+									<li><a href="#">Mic &amp; Trackballs</a></li>
+									<li><a href="#">Mointors</a></li>
+									<li><a href="#">Printers</a></li>
+									<li><a href="#">Scanners</a></li>
+									<li><a href="#">Web Cameras</a></li>
+								</ul>
+							</li>
+							<li><a class="tablets" href="#">Tablets</a></li>
+							<li><a class="software" href="#">Software</a></li>
+							<li>
+								<a class="watches hasdropdown" href="#">Watches</a>
+								<ul class="submenu">
+									<li><a href="#">Test one</a></li>
+									<li><a href="#">Test Two</a></li>
+									<li><a href="#">Test Three</a></li>
+									<li><a href="#">Test Four</a></li>
+									<li><a href="#">Test Five</a></li>
+								</ul>
+							</li>
+						</ul>
+					</nav><!--end nav-->
+					
+					<div id="cart">
+						<a class="cart_dropdown" href="javascript:void(0);"><img src="images/icons/cart_icon.png" alt=""> 3 items<span>: $320.00</span></a>
+						<div class="cart_content">
+							<b class="cart_content_arrow"></b>
+							<ul>
+								<li>
+									<div class="cart_product_name">
+										<img src="images/photos/dropdown_cart_image.jpg" alt="product image">
+										<span>
+											<strong><a href="#">product Name Here and long</a></strong><br>
+											Color: black<br>
+											Size: 36
+										</span>
+									</div>
+									<div class="cart_product_price">
+										<span>
+											<strong>2x - $130.00</strong><br>
+											<a class="remove_item" href="#">Remove</a>
+										</span>
+									</div>
+									<div class="clear"></div>
+								</li>
+								<li>
+									<div class="cart_product_name">
+										<img src="images/photos/dropdown_cart_image.jpg" alt="product image">
+										<span>
+											<strong><a href="#">product Name Here and long</a></strong><br>
+											Color: black<br>
+											Size: 36
+										</span>
+									</div>
+									<div class="cart_product_price">
+										<span>
+											<strong>2x - $130.00</strong><br>
+											<a class="remove_item" href="#">Remove</a>
+										</span>
+									</div>
+									<div class="clear"></div>
+								</li>
+							</ul><!--end ul-->
+
+							<div class="dropdown_cart_info">
+								<div class="cart_buttons">
+									<a class="gray_btn" href="#">View Cart</a><br>
+									<a class="red_btn" href="#">Checkout</a>
+								</div><!--end cart buttons-->
+
+								<div class="cart_total_price">
+									<span>
+										Sub Total : $820.00<br>
+										VAT 16% : $390.00<br>
+										<strong>TOTAL : $1,598.30</strong>
+									</span>
+								</div><!--end cart buttons-->
+								<div class="clear"></div>
+							</div><!--end dropdown_cart_info-->
+
+						</div><!--end cart_content-->
+					</div><!--end cart-->
+
+				</div><!--end main-->
+			</div><!--end sixteen-->
+		</div><!--end container-->
+
+	</header>
+	<!--end header-->
+
+
+
+	<div class="container">
+		<div class="sixteen columns">
+			
+			<div id="pageName">
+				<div class="name_tag">
+					<p>
+						You're Here :: <a href="#">home</a> :: My Wish List
+					</p>
+					<div class="shapLeft"></div>
+					<div class="shapRight"></div>
+				</div>
+			</div><!--end pageName-->
+
+		</div>
+	</div><!-- container -->
+
+
+
+	<!-- strat the main content area -->
+	
+	<div class="container">
+
+		<div class="sixteen columns">
+			
+			<div class="box_head">
+				<h3>My Wish List</h3>
+			</div><!--end box_head -->
+
+			<table class="cart_table">
+				<thead>
+					<tr>
+						<th class="first_td"><h4>The Product</h4></th>
+						<th><h4>Price</h4></th>
+						<th><h4>Model</h4></th>
+						<th><h4>AVAILABILITY</h4></th>
+						<th><h4>Action</h4></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="first_td">
+							<div class="clearfix">
+								<img src="images/photos/cart_img.jpg" alt="product image">
+								<span>
+									<strong><a href="#">Lorem ipsum dolor sit amet</a></strong><br>
+									<ul>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+									</ul>
+									Color: black<br>
+									Size: 36
+								</span>
+							</div>
+						</td>
+						<td>
+							<h5>$130.00</h5>
+						</td>
+						<td>
+							<p>Loram Ispm Dolor sit</p>
+						</td>
+						<td>
+							<p>In Stock</p>
+						</td>
+						<td>
+							<a class="add_item" href="#">cart</a>
+							<a class="delete_item" href="#">delete</a>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="first_td">
+							<div class="clearfix">
+								<img src="images/photos/cart_img.jpg" alt="product image">
+								<span>
+									<strong><a href="#">Lorem ipsum dolor sit amet</a></strong><br>
+									<ul>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+									</ul>
+									Color: black<br>
+									Size: 36
+								</span>
+							</div>
+						</td>
+						<td>
+							<h5>$130.00</h5>
+						</td>
+						<td>
+							<p>Loram Ispm Dolor sit</p>
+						</td>
+						<td>
+							<p>In Stock</p>
+						</td>
+						<td>
+							<a class="add_item" href="#">cart</a>
+							<a class="delete_item" href="#">delete</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="first_td">
+							<div class="clearfix">
+								<img src="images/photos/cart_img.jpg" alt="product image">
+								<span>
+									<strong><a href="#">Lorem ipsum dolor sit amet</a></strong><br>
+									<ul>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+									</ul>
+									Color: black<br>
+									Size: 36
+								</span>
+							</div>
+						</td>
+						<td>
+							<h5>$130.00</h5>
+						</td>
+						<td>
+							<p>Loram Ispm Dolor sit</p>
+						</td>
+						<td>
+							<p>In Stock</p>
+						</td>
+						<td>
+							<a class="add_item" href="#">cart</a>
+							<a class="delete_item" href="#">delete</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="first_td">
+							<div class="clearfix">
+								<img src="images/photos/cart_img.jpg" alt="product image">
+								<span>
+									<strong><a href="#">Lorem ipsum dolor sit amet</a></strong><br>
+									<ul>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+									</ul>
+									Color: black<br>
+									Size: 36
+								</span>
+							</div>
+						</td>
+						<td>
+							<h5>$130.00</h5>
+						</td>
+						<td>
+							<p>Loram Ispm Dolor sit</p>
+						</td>
+						<td>
+							<p>In Stock</p>
+						</td>
+						<td>
+							<a class="add_item" href="#">cart</a>
+							<a class="delete_item" href="#">delete</a>
+						</td>
+					</tr>
+
+					<tr>
+						<td class="first_td">
+							<div class="clearfix">
+								<img src="images/photos/cart_img.jpg" alt="product image">
+								<span>
+									<strong><a href="#">Lorem ipsum dolor sit amet</a></strong><br>
+									<ul>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+										<li><a href="javascript:void(0);">text</a></li>
+									</ul>
+									Color: black<br>
+									Size: 36
+								</span>
+							</div>
+						</td>
+						<td>
+							<h5>$130.00</h5>
+						</td>
+						<td>
+							<p>Loram Ispm Dolor sit</p>
+						</td>
+						<td>
+							<p>In Stock</p>
+						</td>
+						<td>
+							<a class="add_item" href="#">cart</a>
+							<a class="delete_item" href="#">delete</a>
+						</td>
+					</tr>
+				</tbody>
+			</table><!--end cart_table-->
+
+		</div><!--end sixteen-->
+
+	</div><!--end container-->
+	<!-- end the main content area -->
+
+
+
+	<!-- start the footer area-->
+	<footer>
+		<div class="container">
+			<div class="three columns">
+				<div id="info">
+					<h3>Informations</h3>
+					<ul>
+						<li><a href="#">About Us</a></li>
+						<li><a href="#">Delivery Informations</a></li>
+						<li><a href="#">privecy Policey</a></li>
+						<li><a href="#">Terms &amp; Condations</a></li>
+					</ul>
+				</div>
+			</div><!--end three-->
+
+			<div class="three columns">
+				<div id="customer_serices">
+					<h3>Customer Servies</h3>
+					<ul>
+						<li><a href="#">Contact Us</a></li>
+						<li><a href="#">Returns</a></li>
+						<li><a href="#">Site map</a></li>
+						<li><a href="#">addation Link</a></li>
+					</ul>
+				</div>
+			</div><!--end three-->
+
+			<div class="three columns">
+				<div id="extra">
+					<h3>Extra Stuff</h3>
+					<ul>
+						<li><a href="#">Brands</a></li>
+						<li><a href="#">Gift Vouchers</a></li>
+						<li><a href="#">Affiliates</a></li>
+						<li><a href="#">Specials</a></li>
+					</ul>
+				</div>
+			</div><!--end three-->
+
+			<div class="three columns">
+				<div id="my_account">
+					<h3>My Account</h3>
+					<ul>
+						<li><a href="#">Login Area</a></li>
+						<li><a href="#">Order History</a></li>
+						<li><a href="#">Wish List</a></li>
+						<li><a href="#">newsLatter</a></li>
+					</ul>
+				</div>
+			</div><!--end three-->
+
+			<div class="four columns">
+				<div id="delivery" class="clearfix">
+					<h3>Delivery Info</h3>
+					<ul>
+						<li class="f_call">Call Us On: 555-555-555</li>
+						<li class="f_call">Call Us On: 666-666-666</li>
+						<li class="f_mail">example@example.com</li>
+						<li class="f_mail">shoploop@shoploop.com</li>
+					</ul>
+				</div>
+			</div><!--end four-->
+
+		</div><!--end container-->
+
+
+		<div class="tweets">
+			<div class="container">
+				<div class="sixteen columns">
+
+					<div class="tweet">
+						<!-- tweets will generate automaticlly here-->
+					</div><!--end tweet-->
+
+					<!-- <div class="pagers">
+						<button class="prev tweet_prev">Prev</button>
+						<button class="nxt  tweet_nxt">Next</button>
+					</div> -->
+				</div>
+			</div>
+		</div><!--end tweets-->
+
+
+		<div class="container">
+			<div class="sixteen">
+				<p class="copyright">
+					Copyright 2012 for <a href="#">ShoppingLoop.com</a><br>
+					Powered By: <a href="#">opencart.</a>
+				</p>
+				<ul class="socials">
+					<li><a class="twitter" href="#">twitter</a></li>
+					<li><a class="facebook" href="#">face</a></li>
+					<li><a class="googlep" href="#">google+</a></li>
+					<li><a class="vimeo" href="#">vimeo</a></li>
+					<li><a class="skype" href="#">skype</a></li>
+					<li><a class="linked" href="#">linked</a></li>
+				</ul>
+			</div><!--end sixteen-->
+		</div><!--end container-->
+
+	</footer>
+	<!--end the footer area -->
+
+
+
+
+
+	<!-- Sidebar Widget
+	================================================== -->
+	<div id="sideWidget">
+		<div class="bgPatterns">
+			<h4>Solid Colors</h4>
+			<a href="#" style="background:#fff">white</a>
+			<a href="#" style="background:#fafafa">light_gray</a>
+			<a href="#" style="background:#f7f7f7">gray</a>
+			<br><br>
+
+			<h4>Body Patterns</h4>
+			<a href="#" style="background:url(images/bg/white_carbon.png) repeat">white_carbon</a>
+
+			<a href="#" style="background:url(images/bg/circles.png) repeat">circles</a>
+
+			<a href="#" style="background:url(images/bg/cubes.png) repeat">cubes</a>
+
+			<a href="#" style="background:url(images/bg/exclusive_paper.png) repeat">exclusive_paper</a>
+
+			<a href="#" style="background:url(images/bg/gplaypattern.png) repeat">gplaypattern</a>
+
+			<a href="#" style="background:url(images/bg/large_leather.png) repeat">large_leather</a>
+
+			<a href="#" style="background:url(images/bg/lghtmesh.png) repeat">lghtmesh</a>
+
+			<a href="#" style="background:url(images/bg/light_wool.png) repeat">light_wool</a>
+
+			<a href="#" style="background:url(images/bg/lil_fiber.png) repeat">lil_fiber</a>
+
+			<a href="#" style="background:url(images/bg/snow.png) repeat">snow</a>
+
+			<a href="#" style="background:url(images/bg/soft_wallpaper.png) repeat">soft_wallpaper</a>
+
+			<a href="#" style="background:url(images/bg/weave.png) repeat">weave</a>
+
+			<a href="#" style="background:url(images/bg/white_brick_wall.png) repeat">white_brick_wall</a>
+
+			<a href="#" style="background:url(images/bg/white_paperboard.png) repeat">white_paperboard</a>
+
+			<a href="#" style="background:url(images/bg/white_tiles.png) repeat">white_tiles</a>
+
+			<a href="#" style="background:url(images/bg/wall4.png) repeat">wall4</a>
+
+			<a href="#" style="background:url(images/bg/furley_bg.png) repeat">furley_bg</a>
+
+			<a href="#" style="background:url(images/bg/extra_clean_paper.png) repeat">extra_clean_paper</a>
+
+		</div>
+		<a class="WidgetLink" href="#open">+</a>
+	</div>
+	<!-- End Sidebar Widget-->
+
+
+
+
+	<!-- JS
+	================================================== -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <!-- jQuery.dropKick plug-in -->
+    <link rel="stylesheet" href="js/dropKick/dropkick.css">
+	<script src="js/dropKick/jquery.dropkick-1.0.0.js"></script>
+	<!-- jQuery.nicescroll plug-in -->
+	<script src="js/jquery.nicescroll.js"></script>
+	<!-- jQuery.tweet plug-in -->
+	<script src="js/jquery.tweet.js"></script>
+	<!-- jQuery.cycle2 plug-in -->
+	<script src="js/jquery.cycle2.min.js"></script>
+	<script src="js/jquery.cycle2.tile.min.js"></script>
+	<!-- jQuery.jcarousellite plug-in -->
+	<script src="js/jcarousellite_1.0.1.min.js"></script>
+	<!-- jQuery.fancybox plug-in -->
+	<link rel="stylesheet" href="js/fancybox/jquery.fancybox-1.3.4.css">
+	<script src="js/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+	<!-- jQuery.etalage plug-in -->
+	<script src="js/jquery.etalage.min.js"></script>
+	<!-- jQuery.cookie plug-in -->
+	<script src="js/jquery.cookie.js"></script>
+	<!--my custom code-->	
+	<script src="js/main.js"></script>
+	
+	
+
+<!-- End Document
+================================================== -->
+</body>
+</html>

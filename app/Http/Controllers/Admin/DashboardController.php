@@ -21,7 +21,7 @@ class DashboardController extends ViewController
     public function index(Request $request)
     {
         return view($this->themePage('dashboard'), [
-            'topics' => Topic::all()->count(),
+            'topics' => 0,
             'newly_external_lrs' => 10,
             'processed_external_lrs' => 10,
             'newly_teachers' => 10,

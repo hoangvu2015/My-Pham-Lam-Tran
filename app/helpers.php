@@ -147,6 +147,11 @@ function libraryAsset($file_path = '')
     return Theme::libraryAsset($file_path);
 }
 
+function MPasset($file_path = '')
+{
+    return asset('resources/assets/theme_mypham/'.$file_path);
+}
+
 function cdataOpen()
 {
     return '//<![CDATA[';

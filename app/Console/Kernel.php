@@ -15,13 +15,6 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         \Antoree\Console\Commands\Inspire::class,
-        \Antoree\Console\Commands\ChangeStatusTeacher::class,
-        \Antoree\Console\Commands\StudentTmp::class,
-        \Antoree\Console\Commands\UpdateViewBlog::class,
-        \Antoree\Console\Commands\UpdateApproverTeacher::class,
-        \Antoree\Console\Commands\CopyCountryToNationlity::class,
-        \Antoree\Console\Commands\UpdateStudents::class,
-        \Antoree\Console\Commands\CreateContactOdoo::class,
     ];
 
     /**

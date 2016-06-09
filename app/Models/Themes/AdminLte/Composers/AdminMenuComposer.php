@@ -152,6 +152,22 @@ class AdminMenuComposer
                 ));
             }
 
+            //Product items
+            if ($user->hasRole('admin')) {
+                $menu->addItem(new MenuItem( // add a menu header
+                    null,
+                    mb_strtoupper('Sản Phẩm'), 'li', 'header'
+                ));
+                $menu->addItem(new MenuItem( //add a menu item
+                    localizedAdminURL('category-product'),
+                    'Danh Mục', 'li', '', '', '<i class="fa fa-table"></i> <span>', '</span>'
+                ));
+                $menu->addItem(new MenuItem( //add a menu item
+                    localizedAdminURL('product'),
+                    'Sản Phẩm', 'li', '', '', '<i class="fa fa-table"></i> <span>', '</span>'
+                ));
+            }
+
             // Example
 //            $menu->addItem(new MenuItem( // add an example header
 //                null,

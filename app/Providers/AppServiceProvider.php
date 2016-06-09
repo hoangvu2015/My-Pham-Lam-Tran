@@ -29,7 +29,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //CRM Odoo
-        $this->app->register(\Ripcord\Providers\Laravel\ServiceProvider::class);
+       
     }
 }

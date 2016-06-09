@@ -19,6 +19,11 @@ use Illuminate\Support\Facades\Validator;
 
 class BlogController extends ViewController
 {
+    public function listBlog()
+    {
+        return view('theme_mypham.pages.blog.list');
+    }
+
     protected function ogList($articles)
     {
         $images = [appLogo()];
