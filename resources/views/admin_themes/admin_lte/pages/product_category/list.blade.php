@@ -45,7 +45,7 @@
             @endif
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">{{ trans('form.list_of', ['name' => trans_choice('label.user_lc', 2)]) }}</h3>
+                    <h3 class="box-title">{{ trans('form.list_of', ['name' => 'category']) }}</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                     <br/>

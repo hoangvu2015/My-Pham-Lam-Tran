@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Antoree\Http\Controllers\MultipleLocaleContentController;
 
+use Antoree\Models\CategoryProduct;
+use Antoree\Models\Product;
 
 class ProductController extends MultipleLocaleContentController
 {
@@ -20,8 +22,17 @@ class ProductController extends MultipleLocaleContentController
      */
     public function index(Request $request)
     {
-    	// dd('ok');
-        return view($this->themePage('product.list'));
+        $products = Product::orderBy('created_at', 'desc')->paginate(AppHelper::DEFAULT_ITEMS_PER_PAGE); // Helper::DEFAULT_ITEMS_PER_PAGE items per page
+        $products_query = new QueryStringBuilder([
+            'page' => $products->currentPage()
+            ], localizedAdminURL('product'));
+
+        return view($this->themePage('product.list'), [
+            'products' => $products,
+            'products_query' => $products_query,
+            'page_helper' => new PaginationHelper($products->lastPage(), $products->currentPage(), $products->perPage()),
+            'rdr_param' => rdrQueryParam($request->fullUrl()),
+            ]);
     }
 
     /**
@@ -31,7 +42,7 @@ class ProductController extends MultipleLocaleContentController
      */
     public function create()
     {
-        //
+        return view($this->themePage('product_category.add'));
     }
 
     /**
@@ -42,7 +53,35 @@ class ProductController extends MultipleLocaleContentController
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            ]);
+
+        if ($validator->fails()) {
+            return redirect(localizedAdminURL('category-product/add'))
+            ->withInput()
+            ->withErrors($validator);
+        }
+
+        DB::beginTransaction();
+        try {
+            $category = array(
+                'name' => $request->input('name'),
+                'des' => $request->input('des'),
+                'code' => $request->input('code')
+                );
+            $category = CategoryProduct::create($category);
+            $category->save();
+
+            DB::commit();
+        } catch (\Exception $ex) {
+            DB::rollBack();
+            return redirect(localizedAdminURL('category-product/add'))
+            ->withInput()
+            ->withErrors([trans('error.database_insert') . ' (' . $ex->getMessage() . ')']);
+        }
+
+        return redirect(localizedAdminURL('category-product'));
     }
 
     /**
@@ -64,7 +103,11 @@ class ProductController extends MultipleLocaleContentController
      */
     public function edit(Request $request, $id)
     {
-        //
+        $category = CategoryProduct::findOrFail($id);
+
+        return view($this->themePage('product_category.edit'), [
+            'category' => $category,
+            ]);
     }
 
     /**
@@ -76,7 +119,31 @@ class ProductController extends MultipleLocaleContentController
      */
     public function update(Request $request)
     {
-        //
+        $category = CategoryProduct::findOrFail($request->input('id'));
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|max:255',
+            ]);
+        if ($validator->fails()) {
+            return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]))
+            ->withErrors($validator);
+        }
+
+        DB::beginTransaction();
+        try {
+            $category->name = $request->input('name');
+            $category->code = $request->input('code');
+            $category->des = $request->input('des');
+            $category->save();
+
+            DB::commit();
+        } catch (\Exception $e) {
+            DB::rollBack();
+            return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]))
+            ->withInput()
+            ->withErrors([trans('error.database_update') . ' (' . $e->getMessage() . ')']);
+        }
+
+        return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]));
     }
 
     /**
@@ -87,6 +154,14 @@ class ProductController extends MultipleLocaleContentController
      */
     public function destroy(Request $request, $id)
     {
-        //
+        $category = CategoryProduct::findOrFail($id);
+
+        $redirect_url = localizedAdminURL('category-product');
+        $rdr = $request->session()->pull(AppHelper::SESSION_RDR, '');
+        if (!empty($rdr)) {
+            $redirect_url = $rdr;
+        }
+
+        return $category->delete() === true ? redirect($redirect_url) : redirect($redirect_url)->withErrors([trans('error.database_delete')]);
     }
 }
