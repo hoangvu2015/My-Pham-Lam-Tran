@@ -1,7 +1,7 @@
 // building select nav for mobile width only
 $(function(){
 	// building h6 item to toggle the main nav menu
-	$('<h6 class="open_nav">Top Nav</h6>').appendTo('#topHeader div.sixteen');
+	$('<h6 class="open_nav">Menu Top</h6>').appendTo('#topHeader div.sixteen');
 
 	$('#topHeader h6').click(
 		function(){
@@ -18,7 +18,7 @@ $(function(){
 $(function(){
 	
 	// building h6 item to toggle the main nav menu
-	$('<h6 class="open_nav">Nav Items</h6>').appendTo('#mainNav nav');
+	$('<h6 class="open_nav">Menu</h6>').appendTo('#mainNav nav');
 
 	$('#mainNav nav h6').click(
 		function(){

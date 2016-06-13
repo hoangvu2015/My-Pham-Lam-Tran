@@ -6,7 +6,7 @@
 	<div class="container">
 		<div class="three columns">
 			<div id="info">
-				<h3>Informations</h3>
+				<h3>Logo</h3>
 				<ul>
 					<li><a href="#">About Us</a></li>
 					<li><a href="#">Delivery Informations</a></li>
@@ -18,19 +18,18 @@
 
 		<div class="three columns">
 			<div id="customer_serices">
-				<h3>Customer Servies</h3>
+				<h3>Sản Phẩm</h3>
 				<ul>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Returns</a></li>
-					<li><a href="#">Site map</a></li>
-					<li><a href="#">addation Link</a></li>
+					@foreach($pro_categories as $category)
+					<li><a href="#">{{$category->name}}</a></li>
+					@endforeach
 				</ul>
 			</div>
 		</div><!--end three-->
 
 		<div class="three columns">
 			<div id="extra">
-				<h3>Extra Stuff</h3>
+				<h3>Tin Tức</h3>
 				<ul>
 					<li><a href="#">Brands</a></li>
 					<li><a href="#">Gift Vouchers</a></li>
@@ -42,24 +41,23 @@
 
 		<div class="three columns">
 			<div id="my_account">
-				<h3>My Account</h3>
+				<h3>Về Chúng Tôi</h3>
 				<ul>
-					<li><a href="#">Login Area</a></li>
-					<li><a href="#">Order History</a></li>
-					<li><a href="#">Wish List</a></li>
-					<li><a href="#">newsLatter</a></li>
+					<li><a href="#">Giới Thiệu Về Shop</a></li>
+					<li><a href="#">Hướng Dẫn Mua Hàng</a></li>
+					<li><a href="#">Liên Hệ Với Shop</a></li>
 				</ul>
 			</div>
 		</div><!--end three-->
 
 		<div class="four columns">
 			<div id="delivery" class="clearfix">
-				<h3>Delivery Info</h3>
+				<h3>Thông Tin Liên Hệ</h3>
 				<ul>
-					<li class="f_call">Call Us On: 555-555-555</li>
-					<li class="f_call">Call Us On: 666-666-666</li>
-					<li class="f_mail">example@example.com</li>
-					<li class="f_mail">shoploop@shoploop.com</li>
+					<li class="f_call">Điện Thoại: 0165.273.3639</li>
+					<!-- <li class="f_call">Call Us On: 666-666-666</li> -->
+					<li class="f_mail">phlam53ta3@gmail.com</li>
+					<!-- <li class="f_mail">shoploop@shoploop.com</li> -->
 				</ul>
 			</div>
 		</div><!--end four-->
@@ -87,16 +85,16 @@
 		<div class="container">
 			<div class="sixteen">
 				<p class="copyright">
-					Copyright 2012 for <a href="#">ShoppingLoop.com</a><br>
-					Powered By: <a href="#">opencart.</a>
+					Copyright 2016 for <a href="#">ShoppingLoop.com</a><br>
+					<!-- Powered By: <a href="#">opencart.</a> -->
 				</p>
 				<ul class="socials">
-					<li><a class="twitter" href="#">twitter</a></li>
+					<!-- <li><a class="twitter" href="#">twitter</a></li> -->
 					<li><a class="facebook" href="#">face</a></li>
 					<li><a class="googlep" href="#">google+</a></li>
-					<li><a class="vimeo" href="#">vimeo</a></li>
+					<!-- <li><a class="vimeo" href="#">vimeo</a></li> -->
 					<li><a class="skype" href="#">skype</a></li>
-					<li><a class="linked" href="#">linked</a></li>
+					<!-- <li><a class="linked" href="#">linked</a></li> -->
 				</ul>
 			</div><!--end sixteen-->
 		</div><!--end container-->

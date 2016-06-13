@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use Antoree\Models\BlogCategory;
 
+use Antoree\Models\CategoryProduct;
+
 class ViewController extends Controller
 {
     /**
@@ -57,6 +59,7 @@ class ViewController extends Controller
             'blog_categories' => $blog_categories,
             'can_add_blog' => $can_add_blog,
             'can_edit_blog' => $can_edit_blog,
+            'pro_categories' => CategoryProduct::all()
         ];
         foreach ($this->globalViewData as $key => $value) {
             view()->share($key, $value);

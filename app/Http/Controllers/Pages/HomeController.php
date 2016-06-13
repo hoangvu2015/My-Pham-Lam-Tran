@@ -10,6 +10,9 @@ use Antoree\Http\Requests;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 
+use Antoree\Models\CategoryProduct;
+use Antoree\Models\Product;
+
 class HomeController extends ViewController
 {
     /**
@@ -22,7 +25,15 @@ class HomeController extends ViewController
         $this->theme->title([trans('pages.page_home_title_meta')],false);
         $this->theme->description(trans('pages.page_home_desc_meta'));
 
-        return view('theme_mypham.pages.home');
+        $pro_news = Product::all(); 
+        $pro_hots = Product::all(); 
+        $pro_offers = Product::all(); 
+        
+        return view('theme_mypham.pages.home',[
+            'pro_news'=>$pro_news,
+            'pro_hots'=>$pro_hots,
+            'pro_offers'=>$pro_offers,
+            ]);
     }
 
     public function getLocalizationSetting(Request $request)

@@ -1,7 +1,7 @@
 @extends('theme_mypham.master.layout')
 
 @section('theme_mp_css')
-<link rel="stylesheet" href="{{MPasset('css/home2.css')}}">
+<link rel="stylesheet" href="{{MPasset('css/home.css')}}">
 @endsection
 
 @section('extended_styles')
@@ -31,6 +31,23 @@
 				data-cycle-prev="div.pagers a.slide_prev"
 				data-cycle-next="div.pagers a.slide_nxt"
 				>
+				@foreach($pro_hots as $pro_hot)
+				<li class="clearfix">
+					<div class="slide_img">
+						<img src="{{$pro_hot->image1}}" alt="">
+					</div>
+					<div class="flex-caption">
+						<h5>Sản Phẩm Đang Hot<br><span style="overflow: hidden;height: 30px;display: block;">{{$pro_hot->name}}</span></h5>
+						<p>
+							{!!$pro_hot->des!!}
+						</p>
+						<!-- <p>
+							Nam accumsan lacus sed ipsum tempus mollis. Nulla vitae lorem libero, at porta enim. Aenean quis justo metus.
+						</p> -->
+						<a href="#"><span>CHI TIẾT</span><span class="shadow">{{$pro_hot->price}} VND</span></a>
+					</div>
+				</li>
+				@endforeach
 				<li class="clearfix">
 					<div class="slide_img">
 						<img src="{{url()}}/resources/assets/theme_mypham/images/icons/iphone_4_icon.png" alt="">
@@ -90,274 +107,7 @@
 
 <div class="container">
 
-
-	<div class="featured">
-		<div class="box_head">
-			<h3>Featured Items</h3>
-			<div class="pagers center">
-				<a class="prev featuredPrev" href="#prev">Prev</a>
-				<a class="nxt featuredNxt" href="#nxt">Next</a>
-			</div>
-		</div><!--end box_head -->
-		
-
-		<div class="cycle-slideshow" 
-		data-cycle-fx="scrollHorz"
-		data-cycle-timeout=0
-		data-cycle-slides="> ul"
-		data-cycle-prev="div.pagers a.featuredPrev"
-		data-cycle-next="div.pagers a.featuredNxt"
-		>
-		<ul class="product_show">
-			<li class="column">
-				<div class="img">
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5>$130.90</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="offer_icon"></div>
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5><span class="sale_offer">$330.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$130.00</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="offer_icon"></div>
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column5.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5><span class="sale_offer">$210.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$194.90</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5>$130.90</h5>
-			</li>
-		</ul>
-		<ul class="product_show">
-			<li class="column">
-				<div class="img">
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5>$130.90</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="offer_icon"></div>
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5><span class="sale_offer">$330.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$130.00</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="offer_icon"></div>
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column5.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5><span class="sale_offer">$210.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$194.90</h5>
-			</li>
-			<li class="column">
-				<div class="img">
-					<div class="hover_over">
-						<a class="link" href="#">link</a>
-						<a class="cart" href="#">cart</a>
-					</div>
-					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
-					</a>
-				</div>
-				<h6><a href="#">Product Name Here</a></h6>
-				<h5>$130.90</h5>
-			</li>
-		</ul>
-	</div>
-</div><!--end featured-->
-
-
-<div class="latest">
-
-	<div class="box_head">
-		<h3>Latest Items</h3>
-		<div class="pagers center">
-			<a class="prev latest_prev" href="#prev">Prev</a>
-			<a class="nxt latest_nxt" href="#nxt">Next</a>
-		</div>
-	</div><!--end box_head -->
-
-	<div class="cycle-slideshow" 
-	data-cycle-fx="scrollHorz"
-	data-cycle-timeout=0
-	data-cycle-slides="> ul"
-	data-cycle-prev="div.pagers a.latest_prev"
-	data-cycle-next="div.pagers a.latest_nxt"
-	>
-
-	<ul class="product_show">
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column1.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$40.90</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$130.90</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$200.00</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$358.00</h5>
-		</li>
-	</ul>
-	<ul class="product_show">
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column1.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$40.90</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$130.90</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$200.00</h5>
-		</li>
-		<li class="column">
-			<div class="img">
-				<div class="hover_over">
-					<a class="link" href="#">link</a>
-					<a class="cart" href="#">cart</a>
-				</div>
-				<a href="#">
-					<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
-				</a>
-			</div>
-			<h6><a href="#">Product Name Here</a></h6>
-			<h5>$358.00</h5>
-		</li>
-	</ul>
-
-</div>
-</div><!--end latest-->
-
-
-
-<div class="sixteen columns clearfix">
-	<div class="ten columns alpha">
+	<div class="ten columns">
 		<div class="welcome">
 			<div class="clearfix">
 				<h2>Welcome To Shoploop</h2>
@@ -379,13 +129,13 @@
 		</div><!--end welcome-->
 	</div><!--end ten-->
 
-	<div class="six columns omega">
+	<div class="six columns">
 		<div class="home_news">
 			<h3>Now, Get Your Free Shopping</h3>
 			<div class="acc">
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Morbi malesuada, ante at feugiat tincidunt, enim massa gravida metus, commodo lacinia massa diam vel eros. Proin eget urna. Nunc fringilla neque vitae odio. Vivamus vitae ligula.</p>
 			</div>
-
+			
 			<h3>Super easy to customize anything</h3>
 			<div class="acc">
 				<p>
@@ -416,65 +166,214 @@
 			</div>
 		</div><!--end home_news-->
 	</div><!--end six-->
-</div><!--end sixteen-->
 
 
-<div class="sixteen columns">
-	<div class="brands">
+	<div class="eight columns">
+		<div class="latest">
+
+			<div class="box_head">
+				<h3>Sản Phẩm Mới</h3>
+				<div class="pagers center">
+					<a class="prev latest_prev" href="#prev">Prev</a>
+					<a class="nxt latest_nxt" href="#nxt">Next</a>
+				</div>
+			</div><!--end box_head -->
+
+			<div class="cycle-slideshow" 
+			data-cycle-fx="scrollHorz"
+			data-cycle-timeout=0
+			data-cycle-slides="> ul"
+			data-cycle-prev="div.pagers a.latest_prev"
+			data-cycle-next="div.pagers a.latest_nxt"
+			>
+
+			<ul class="product_show">
+				@foreach($pro_news as $pro_new)
+				<li>
+					<div class="img">
+						<div class="hover_over">
+							<a class="link" href="#">link</a>
+							<a class="cart" href="#">cart</a>
+						</div>
+						<a href="#">
+							<img src="{{$pro_new->image1}}" alt="product">
+						</a>
+					</div>
+					<h6><a href="#" style="overflow: hidden;height: 40px;display: block;">{{$pro_new->name}}</a></h6>
+					<h5>{{$pro_new->price}} VND</h5>
+				</li>
+				@endforeach
+			</ul>
+			<ul class="product_show">
+				<li>
+					<div class="img">
+						<div class="hover_over">
+							<a class="link" href="#">link</a>
+							<a class="cart" href="#">cart</a>
+						</div>
+						<a href="#">
+							<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column1.jpg" alt="product">
+						</a>
+					</div>
+					<h6><a href="#">Product Name Here</a></h6>
+					<h5>$40.90</h5>
+				</li>
+				<li>
+					<div class="img">
+						<div class="hover_over">
+							<a class="link" href="#">link</a>
+							<a class="cart" href="#">cart</a>
+						</div>
+						<a href="#">
+							<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
+						</a>
+					</div>
+					<h6><a href="#">Product Name Here</a></h6>
+					<h5>$130.90</h5>
+				</li>
+				<li>
+					<div class="img">
+						<div class="hover_over">
+							<a class="link" href="#">link</a>
+							<a class="cart" href="#">cart</a>
+						</div>
+						<a href="#">
+							<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
+						</a>
+					</div>
+					<h6><a href="#">Product Name Here</a></h6>
+					<h5>$200.00</h5>
+				</li>
+				<li>
+					<div class="img">
+						<div class="hover_over">
+							<a class="link" href="#">link</a>
+							<a class="cart" href="#">cart</a>
+						</div>
+						<a href="#">
+							<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
+						</a>
+					</div>
+					<h6><a href="#">Product Name Here</a></h6>
+					<h5>$358.00</h5>
+				</li>
+			</ul>
+
+		</div>
+	</div><!--end latest-->
+</div><!--end eight-->
+
+
+<div class="eight columns">
+	<div class="featured">
 
 		<div class="box_head">
-			<h3>brands</h3>
+			<h3>Sản Phẩm Khuyến Mãi</h3>
 			<div class="pagers center">
-				<a class="prev brand_prev" href="#prev">Prev</a>
-				<a class="nxt brand_nxt" href="#nxt">Next</a>
+				<a class="prev featuredPrev" href="#prev">Prev</a>
+				<a class="nxt featuredNxt" href="#nxt">Next</a>
 			</div>
 		</div><!--end box_head -->
 
-		<div class="brandOuter">
-			<ul>
-				<li>
+		<div class="cycle-slideshow" 
+		data-cycle-fx="scrollHorz"
+		data-cycle-timeout=0
+		data-cycle-slides="> ul"
+		data-cycle-prev="div.pagers a.featuredPrev"
+		data-cycle-next="div.pagers a.featuredNxt"
+		>
+		<ul class="product_show">
+			@foreach($pro_offers as $pro_offer)
+			<li>
+				<div class="img">
+					<div class="offer_icon"></div>
+					<div class="hover_over">
+						<a class="link" href="#">link</a>
+						<a class="cart" href="#">cart</a>
+					</div>
 					<a href="#">
-						<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_adidas-130x130.jpg" alt="brand">
-					</a></li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_asics-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_conv-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_nike-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_puma-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_rbk-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_nike-130x130.jpg" alt="brand">
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<img src="{{url()}}/resources/assets/theme_mypham/images/brands/logo_asics-130x130.jpg" alt="brand">
-						</a>
-					</li>
-				</ul>
-			</div>
-		</div><!--end brands-->
-	</div><!--end sixteen-->
+						<img src="{{$pro_offer->image1}}" alt="product">
+					</a>
+				</div>
+				<h6><a href="#" style="overflow: hidden;height: 40px;display: block;">{{$pro_offer->name}}</a></h6>
+				<h5><span class="sale_offer">{{$pro_offer->price}} VND</span>&nbsp;&nbsp;&nbsp;&nbsp;$130.00</h5>
+			</li>
+			@endforeach
+		</ul>
+		<ul class="product_show">
+			<li>
+				<div class="img">
+					<div class="hover_over">
+						<a class="link" href="#">link</a>
+						<a class="cart" href="#">cart</a>
+					</div>
+					<a href="#">
+						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column3.jpg" alt="product">
+					</a>
+				</div>
+				<h6><a href="#">Product Name Here</a></h6>
+				<h5>$130.90</h5>
+			</li>
+			<li>
+				<div class="img">
+					<div class="offer_icon"></div>
+					<div class="hover_over">
+						<a class="link" href="#">link</a>
+						<a class="cart" href="#">cart</a>
+					</div>
+					<a href="#">
+						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column4.jpg" alt="product">
+					</a>
+				</div>
+				<h6><a href="#">Product Name Here</a></h6>
+				<h5><span class="sale_offer">$330.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$130.00</h5>
+			</li>
+			<li>
+				<div class="img">
+					<div class="offer_icon"></div>
+					<div class="hover_over">
+						<a class="link" href="#">link</a>
+						<a class="cart" href="#">cart</a>
+					</div>
+					<a href="#">
+						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column5.jpg" alt="product">
+					</a>
+				</div>
+				<h6><a href="#">Product Name Here</a></h6>
+				<h5><span class="sale_offer">$210.00</span>&nbsp;&nbsp;&nbsp;&nbsp;$194.90</h5>
+			</li>
+			<li>
+				<div class="img">
+					<div class="hover_over">
+						<a class="link" href="#">link</a>
+						<a class="cart" href="#">cart</a>
+					</div>
+					<a href="#">
+						<img src="{{url()}}/resources/assets/theme_mypham/images/photos/four_column2.jpg" alt="product">
+					</a>
+				</div>
+				<h6><a href="#">Product Name Here</a></h6>
+				<h5>$130.90</h5>
+			</li>
+		</ul>
+	</div>
+</div><!--end featured-->
+</div><!--end eight-->
+
+<div class="sixteen columns">
+	<section id="tagLine" class="clearfix">
+		<div class="twelve columns">
+			<h5>
+				Shoploop <span>lets you upload and sell digital goodies easily.</span><br>
+				<small>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque non scelerisque lectus</small>
+			</h5>
+		</div>
+		<div class="three columns">
+			<a class="red_btn" href="#">start browsing</a>
+		</div>
+
+	</section><!--end tagLine-->
+</div><!--end sixteen-->
 
 </div><!--end container-->
 <!-- end the main content area -->
