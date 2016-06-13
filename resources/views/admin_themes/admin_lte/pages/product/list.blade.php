@@ -102,7 +102,7 @@
                                 <td>{{ $product->discount }}</td>
                                 <td>{{ $product->view }}</td>
                                 <td>{{ $product->status_show }}</td>
-                                <td>{{ $product->status_type }}</td>
+                                <td>{{ $product->status_type == 1 ? 'Mới' : ($product->status_type == 2 ? 'Bán chạy' : ($product->status_type == 3 ? 'Khuyến mãi' : ($product->status_type == 4 ? 'Phổ biến' :'Not Set'))) }}</td>
                                 <td>{{ $product->categories->name }}</td>
                                 <td>
                                     <a href="{{ localizedAdminURL('product/{id}/edit', ['id'=> $product->id]) }}">{{ trans('form.action_edit') }}</a>

@@ -61,7 +61,7 @@
                     </div>
                     <div class="form-group">
                         <label for="inputEmail">Disconut </label>
-                        <input class="form-control" id="inputEmail" name="disconut" maxlength="255" placeholder="Disconut" type="number" value="{{ old('disconut') }}">
+                        <input class="form-control" id="inputEmail" name="discount" maxlength="255" placeholder="Disconut" type="number" value="{{ old('discount') }}">
                     </div>
                     <div class="form-group">
                         <label for="inputEmail">Nơi SX</label>
