@@ -1,33 +1,49 @@
 @extends('admin_themes.admin_lte.master.admin')
 @section('page_title', 'Danh mục')
-@section('page_description', 'Quản lý Danh mục')
+@section('page_description', 'Quản lý Sản phẩm')
 @section('page_breadcrumb')
 <ol class="breadcrumb">
     <li><a href="{{ adminHomeURL() }}"><i class="fa fa-dashboard"></i> {{ trans('pages.page_home_title') }}</a></li>
-    <li><a href="{{ localizedAdminURL('category-product') }}">Danh mục</a></li>
+    <li><a href="{{ localizedAdminURL('category-product') }}">Sản phẩm</a></li>
 </ol>
 @endsection
 @section('lib_styles')
+<link rel="stylesheet" href="{{ libraryAsset('select2/css/select2.min.css') }}">
 @endsection
-@section('extended_styles')
+@section('extended_scripts')
+@include('file_manager.open_documents_script')
+<script>
+    {!! cdataOpen() !!}
+    jQuery(document).ready(function () {
+        jQuery('.select2').select2();
+        jQuery('.ck-editor').ckeditor({
+            language : '{{ $site_locale }}',
+            filebrowserBrowseUrl : '{{ localizedURL('documents/for/ckeditor') }}',
+            filebrowserFlashBrowseUrl : '{{ localizedURL('documents/for/ckeditor') }}?custom_type=flash',
+            filebrowserFlashUploadUrl  : '{{ localizedURL('documents/for/ckeditor') }}?custom_type=flash',
+            filebrowserImageBrowseLinkUrl : '{{ localizedURL('documents/for/ckeditor') }}?custom_type=images',
+            filebrowserImageBrowseUrl : '{{ localizedURL('documents/for/ckeditor') }}?custom_type=images',
+            customConfig : '{{ libraryAsset('ckeditor/config_article.js') }}'
+        });
+    });
+    {!! cdataClose() !!}
+</script>
 @endsection
 @section('lib_scripts')
-@endsection
-@section('modals')
-@include('admin_themes.admin_lte.master.common_modals')
+<script src="{{ libraryAsset('select2/js/select2.min.js') }}"></script>
+<script src="{{ libraryAsset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ libraryAsset('ckeditor/adapters/jquery.js') }}"></script>
 @endsection
 @section('page_content')
 <div class="row">
     <div class="col-xs-12">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">
-                    Sửa danh mục
-                </h3>
+                <h3 class="box-title">Sửa danh mục</h3>
             </div>
-            <form action="{{ localizedAdminURL('category-product/update') }}" method="post">
+            <form method="post" action="{{ localizedAdminURL('product/update') }}">
                 {!! csrf_field() !!}
-                <input type="hidden" name="id" value="{{ $category->id }}">
+                <input name="id" type="hidden" value="{{$product->id}}">
                 <div class="box-body">
                     @if (count($errors) > 0)
                     <div class="alert alert-danger">
@@ -36,25 +52,86 @@
                         @endforeach
                     </div>
                     @endif
-
                     <div class="form-group">
-                        <label for="inputName">Tên</label>
-                        <input class="form-control" id="inputName" name="name" maxlength="255" placeholder="Tên Loại" type="text" required value="{{ $category->name }}">
+                        <label for="inputName" class="required">Tên SP</label>
+                        <input class="form-control" id="inputName" name="name" maxlength="255" placeholder="Tên Loại" type="text" required value="{{$product->name}}">
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail">code</label>
-                        <input class="form-control" id="inputEmail" name="code" maxlength="255" placeholder="code" type="text" value="{{ $category->code }}">
+                        <label for="inputEmail" class="required">Giá</label>
+                        <input class="form-control" id="inputEmail" name="price" maxlength="255" placeholder="Giá" type="number" value="{{$product->price}}">
                     </div>
                     <div class="form-group">
-                        <label for="inputEmail">Mô tả</label>
-                        <input class="form-control" id="inputEmail" name="des" maxlength="255" placeholder="Mô tả" type="text" value="{{ $category->des }}">
+                        <label for="inputEmail">Disconut </label>
+                        <input class="form-control" id="inputEmail" name="discount" maxlength="255" placeholder="Disconut" type="number" value="{{$product->discount}}">
                     </div>
-
+                    <div class="form-group">
+                        <label for="inputEmail">Nơi SX</label>
+                        <input class="form-control" id="inputEmail" name="brand" maxlength="255" placeholder="Nơi SX" type="text" value="{{$product->brand}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Xuất xứ</label>
+                        <input class="form-control" id="inputEmail" name="origin" maxlength="255" placeholder="Xuất xứ" type="text" value="{{$product->origin}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputImage1" class="required">{{ trans('label.picture') }} 1</label>
+                        <input class="form-control image-from-documents" id="inputImage1" name="image1" placeholder="{{ trans('label.picture') }}" type="text" value="{{$product->image1}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputImage2">{{ trans('label.picture') }} 2</label>
+                        <input class="form-control image-from-documents" id="inputImage2" name="image2" placeholder="{{ trans('label.picture') }}" type="text" value="{{$product->image2}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputImage3">{{ trans('label.picture') }} 3</label>
+                        <input class="form-control image-from-documents" id="inputImage3" name="image3" placeholder="{{ trans('label.picture') }}" type="text" value="{{$product->image3}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputImage4">{{ trans('label.picture') }} 4</label>
+                        <input class="form-control image-from-documents" id="inputImage4" name="image4" placeholder="{{ trans('label.picture') }}" type="text" value="{{$product->image4}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContent">Mô tả</label>
+                        <textarea rows="10" class="form-control ck-editor" id="inputContent" name="des" placeholder="{{ trans('label.description') }}">{{$product->des}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputContent">Nội dung</label>
+                        <textarea rows="10" class="form-control ck-editor" id="inputContent" name="content" placeholder="{{ trans('label.content') }}">{{$product->content}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Trạng thái hiển thị</label>
+                        <select id="inputCategories" class="form-control" name="status_show" required>
+                            <option value="0"{{ $product->status_show == 0 ? ' selected' : '' }}>Không show</option>
+                            <option value="1"{{ $product->status_show == 1 ? ' selected' : '' }}>Show</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">Trạng thái mục SP</label>
+                        <select id="inputCategories" class="form-control" name="status_type" required>
+                            <option value="0">Chọn mục đặc biệt</option>
+                            <option value="1"{{ $product->status_type == 1 ? ' selected' : '' }}>Sản phẩm mới</option>
+                            <option value="2"{{ $product->status_type == 2 ? ' selected' : '' }}>Sản phẩm bán chạy</option>
+                            <option value="3"{{ $product->status_type == 3 ? ' selected' : '' }}>Sản phẩm khuyến mãi</option>
+                            <option value="4"{{ $product->status_type == 4 ? ' selected' : '' }}>Sản phẩm phổ biến</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputCategories" class="required">{{ trans_choice('label.category', 2) }}</label>
+                        <select id="inputCategories" class="form-control select2" name="category_id" required data-placeholder="{{ trans('form.action_select') }} {{ trans_choice('label.category', 2) }}" style="width: 100%;">
+                            @foreach ($categories as $category)
+                            <option value="{{ $category->id }}"{{ $product->category_id == $category->id ? ' selected' : '' }}>
+                                {{ $category->name }}
+                            </option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputEmail">View </label>
+                        <input class="form-control" id="inputEmail" name="view" placeholder="view" type="number" value="{{$product->view}}">
+                    </div>
                 </div>
                 <div class="box-footer">
-                    <button class="btn btn-primary" type="submit">{{ trans('form.action_save') }}</button>
+                    <button class="btn btn-primary" type="submit">{{ trans('form.action_edit') }}</button>
                     <button class="btn btn-default" type="reset">{{ trans('form.action_reset') }}</button>
-                    <a role="button" class="btn btn-default pull-right" href="{{ localizedAdminURL('category-product') }}">{{ trans('form.action_cancel') }}</a>
+                    <a role="button" class="btn btn-warning pull-right" href="{{ localizedAdminURL('product') }}">{{ trans('form.action_cancel') }}</a>
                 </div>
             </form>
             <!-- /.box-body -->

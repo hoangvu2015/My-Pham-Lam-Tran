@@ -42,7 +42,9 @@ class ProductController extends MultipleLocaleContentController
      */
     public function create()
     {
-        return view($this->themePage('product_category.add'));
+        return view($this->themePage('product.add'),[
+            'categories' => CategoryProduct::all()
+            ]);
     }
 
     /**
@@ -53,35 +55,50 @@ class ProductController extends MultipleLocaleContentController
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'category_id' => 'required|exists:category_product,id',
             ]);
 
         if ($validator->fails()) {
-            return redirect(localizedAdminURL('category-product/add'))
+            return redirect(localizedAdminURL('product/add'))
             ->withInput()
             ->withErrors($validator);
         }
 
         DB::beginTransaction();
         try {
-            $category = array(
+            $product = array(
                 'name' => $request->input('name'),
                 'des' => $request->input('des'),
-                'code' => $request->input('code')
+                'price' => $request->input('price'),
+                'content' => $request->input('content'),
+                'brand' => $request->input('brand'),
+                'origin' => $request->input('origin'),
+                'view' => $request->input('view'),
+                'discount' => $request->input('discount'),
+                'image1' => $request->input('image1'),
+                'image2' => $request->input('image2'),
+                'image3' => $request->input('image3'),
+                'image4' => $request->input('image4'),
+                'status_show' => $request->input('status_show'),
+                'status_type' => $request->input('status_type'),
+                'category_id' => intval($request->input('category_id')),
                 );
-            $category = CategoryProduct::create($category);
-            $category->save();
+            $product = Product::create($product);
+            $product->save();
 
             DB::commit();
         } catch (\Exception $ex) {
             DB::rollBack();
-            return redirect(localizedAdminURL('category-product/add'))
+            return redirect(localizedAdminURL('product/add'))
             ->withInput()
             ->withErrors([trans('error.database_insert') . ' (' . $ex->getMessage() . ')']);
         }
 
-        return redirect(localizedAdminURL('category-product'));
+        return redirect(localizedAdminURL('product'));
     }
 
     /**
@@ -103,10 +120,11 @@ class ProductController extends MultipleLocaleContentController
      */
     public function edit(Request $request, $id)
     {
-        $category = CategoryProduct::findOrFail($id);
+        $product = Product::findOrFail($id);
 
-        return view($this->themePage('product_category.edit'), [
-            'category' => $category,
+        return view($this->themePage('product.edit'), [
+            'product' => $product,
+            'categories' => CategoryProduct::all()
             ]);
     }
 
@@ -119,31 +137,45 @@ class ProductController extends MultipleLocaleContentController
      */
     public function update(Request $request)
     {
-        $category = CategoryProduct::findOrFail($request->input('id'));
+        $product = Product::findOrFail($request->input('id'));
         $validator = Validator::make($request->all(), [
             'name' => 'required|max:255',
+            'price' => 'required|max:255',
+            'category_id' => 'required|exists:category_product,id',
             ]);
         if ($validator->fails()) {
-            return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]))
+            return redirect(localizedAdminURL('product/{id}/edit', ['id' => $product->id]))
             ->withErrors($validator);
         }
 
         DB::beginTransaction();
         try {
-            $category->name = $request->input('name');
-            $category->code = $request->input('code');
-            $category->des = $request->input('des');
-            $category->save();
+            $product->name = $request->input('name');
+            $product->price = $request->input('price');
+            $product->content = $request->input('content');
+            $product->des = $request->input('des');
+            $product->brand = $request->input('brand');
+            $product->origin = $request->input('origin');
+            $product->discount = $request->input('discount');
+            $product->view = $request->input('view');
+            $product->image1 = $request->input('image1');
+            $product->image2 = $request->input('image2');
+            $product->image3 = $request->input('image3');
+            $product->image4 = $request->input('image4');
+            $product->status_show = $request->input('status_show');
+            $product->status_type = $request->input('status_type');
+            $product->category_id = intval($request->input('category_id'));
+            $product->save();
 
             DB::commit();
         } catch (\Exception $e) {
             DB::rollBack();
-            return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]))
+            return redirect(localizedAdminURL('product/{id}/edit', ['id' => $product->id]))
             ->withInput()
             ->withErrors([trans('error.database_update') . ' (' . $e->getMessage() . ')']);
         }
 
-        return redirect(localizedAdminURL('category-product/{id}/edit', ['id' => $category->id]));
+        return redirect(localizedAdminURL('product/{id}/edit', ['id' => $product->id]));
     }
 
     /**
@@ -154,9 +186,9 @@ class ProductController extends MultipleLocaleContentController
      */
     public function destroy(Request $request, $id)
     {
-        $category = CategoryProduct::findOrFail($id);
+        $category = Product::findOrFail($id);
 
-        $redirect_url = localizedAdminURL('category-product');
+        $redirect_url = localizedAdminURL('product');
         $rdr = $request->session()->pull(AppHelper::SESSION_RDR, '');
         if (!empty($rdr)) {
             $redirect_url = $rdr;

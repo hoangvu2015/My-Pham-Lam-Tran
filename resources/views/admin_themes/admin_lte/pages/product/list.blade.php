@@ -56,18 +56,17 @@
                             <tr>
                                 <th class="order-col-2">#</th>
                                 <th>ID</th>
-                                <th>name</th>
-                                <th>content</th>
-                                <th>brand</th>
-                                <th>origin</th>
-                                <th>price</th>
-                                <th>discount</th>
+                                <th>Tên SP</th>
+                                <th>Image1</th>
+                                <!-- <th>content</th> -->
+                                <th>CT</th>
+                                <th>Xuất xứ</th>
+                                <th>Giá</th>
+                                <th>Giảm giá</th>
                                 <th>view</th>
-                                <th>status show</th>
-                                <th>status type</th>
-                                <th>category</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Show</th>
+                                <th>Special</th>
+                                <th>Loại SP</th>
                                 <th>{{ trans('form.action') }}</th>
                             </tr>
                         </thead>
@@ -75,18 +74,17 @@
                             <tr>
                                 <th class="order-col-2">#</th>
                                 <th>ID</th>
-                                <th>name</th>
-                                <th>content</th>
-                                <th>brand</th>
-                                <th>origin</th>
-                                <th>price</th>
-                                <th>discount</th>
+                                <th>Tên SP</th>
+                                <th>Image1</th>
+                                <!-- <th>content</th> -->
+                                <th>CT</th>
+                                <th>Xuất xứ</th>
+                                <th>Giá</th>
+                                <th>Giảm giá</th>
                                 <th>view</th>
-                                <th>status show</th>
-                                <th>status type</th>
-                                <th>category</th>
-                                <th>created_at</th>
-                                <th>updated_at</th>
+                                <th>Show</th>
+                                <th>Special</th>
+                                <th>Loại SP</th>
                                 <th>{{ trans('form.action') }}</th>
                             </tr>
                         </tfoot>
@@ -96,7 +94,8 @@
                                 <td class="order-col-2">{{ ++$page_helper->startOrder }}</td>
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
-                                <td>{{ $product->content }}</td>
+                                <td><img src="{{ $product->image1 }}" style="width:50px;height: 50px;" alt=""></td>
+                                <!-- <td>{{ htmlShorten($product->content,100) }}</td> -->
                                 <td>{{ $product->brand }}</td>
                                 <td>{{ $product->origin }}</td>
                                 <td>{{ $product->price }}</td>
@@ -105,8 +104,6 @@
                                 <td>{{ $product->status_show }}</td>
                                 <td>{{ $product->status_type }}</td>
                                 <td>{{ $product->categories->name }}</td>
-                                <td>{{ $product->created_at }}</td>
-                                <td>{{ $product->updated_at }}</td>
                                 <td>
                                     <a href="{{ localizedAdminURL('product/{id}/edit', ['id'=> $product->id]) }}">{{ trans('form.action_edit') }}</a>
                                     <a class="delete" href="{{ localizedAdminURL('product/{id}/delete', ['id'=> $product->id])}}?{{ $rdr_param }}">
