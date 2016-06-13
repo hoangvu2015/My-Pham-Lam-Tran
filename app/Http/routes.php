@@ -267,14 +267,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => ['for
                 Route::post(translatedAdminPath('category-product/add'), 'Admin\ProductCategoryController@store');
                 Route::get(translatedAdminPath('category-product/{id}/edit'), 'Admin\ProductCategoryController@edit');
                 Route::post(translatedAdminPath('category-product/update'), 'Admin\ProductCategoryController@update');
-                Route::post(translatedAdminPath('category-product/{id}/delete'), 'Admin\ProductCategoryController@destroy');
+                Route::get(translatedAdminPath('category-product/{id}/delete'), 'Admin\ProductCategoryController@destroy');
                 //Product Items
                 Route::get(translatedAdminPath('product'), 'Admin\ProductController@index');
                 Route::get(translatedAdminPath('product/add'), 'Admin\ProductController@create');
                 Route::post(translatedAdminPath('product/add'), 'Admin\ProductController@store');
                 Route::get(translatedAdminPath('product/{id}/edit'), 'Admin\ProductController@edit');
                 Route::post(translatedAdminPath('product/update'), 'Admin\ProductController@update');
-                Route::post(translatedAdminPath('product/{id}/delete'), 'Admin\ProductController@destroy');
+                Route::get(translatedAdminPath('product/{id}/delete'), 'Admin\ProductController@destroy');
             });
             ####endregion Admin Role
 
