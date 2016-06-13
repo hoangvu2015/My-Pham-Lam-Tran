@@ -16,7 +16,7 @@ class CreateModuleProduct extends Migration
             $table->increments('id')->unsigned();
             $table->integer('parent_id')->unsigned()->default(0);
             $table->string('name');
-            $table->string('code');
+            $table->string('code')->nullable();
             $table->timestamps();
         });
 
@@ -24,17 +24,17 @@ class CreateModuleProduct extends Migration
             $table->increments('id')->unsigned();
             $table->string('name');
             $table->float('price');
-            $table->text('content');
-            $table->text('brand');
-            $table->text('origin');
-            $table->integer('discount');
-            $table->string('image1');
-            $table->string('image2');
-            $table->string('image3');
-            $table->string('image4');
-            $table->integer('view');
-            $table->integer('status_show'); // co show hay khong.
-            $table->integer('status_type'); // san pham ban chay, pho bien,.....
+            $table->text('content')->nullable();
+            $table->text('brand')->nullable();
+            $table->text('origin')->nullable();
+            $table->integer('discount')->default(0);
+            $table->string('image1')->nullable();
+            $table->string('image2')->nullable();
+            $table->string('image3')->nullable();
+            $table->string('image4')->nullable();
+            $table->integer('view')->unsigned()->default(0);
+            $table->integer('status_show')->unsigned()->default(0); // co show hay khong.
+            $table->integer('status_type')->unsigned()->default(0); // san pham ban chay, pho bien,.....
 
             $table->integer('category_id')->unsigned();
             $table->timestamps();
