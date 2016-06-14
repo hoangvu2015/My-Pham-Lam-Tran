@@ -49,7 +49,7 @@ class AuthController extends ViewController {
 
         $this->redirectPath = localizedPath('auth/inactive');
         $this->loginPath = localizedPath('auth/login');
-        $this->redirectAfterLogout = homePath();
+        $this->redirectAfterLogout = '/';
         $this->socialRegisterPath = localizedPath('auth/register/social');
 
         $this->middleware('guest', ['except' => 'getLogout']);
